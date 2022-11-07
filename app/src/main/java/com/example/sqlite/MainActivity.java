@@ -34,15 +34,15 @@ public class MainActivity extends AppCompatActivity {
         list.setAdapter(adapter);
 
         //Tao database:
-        baiHocHelper = new BaiHocHelper(this, "baihoctable.sqlite",null,1);
+        baiHocHelper = new BaiHocHelper(this, "abc.sqlite",null,1);
 
         //tao bang
         baiHocHelper.QueryData("CREATE TABLE IF NOT EXISTS NoiDungTable(Id INTEGER PRIMARY KEY AUTOINCREMENT, TenBai VARCHAR(200))");
 
         //Them du lieu(Chỉ chạy 1 lần -> tránh lặp lại dữ liệu)
-        baiHocHelper.QueryData("INSERT INTO NoiDungTable VALUES (null, 'ABC')");
-        baiHocHelper.QueryData("INSERT INTO NoiDungTable VALUES (null, 'MABC 2')");
-        baiHocHelper.QueryData("INSERT INTO NoiDungTable VALUES (null, 'Mác)");
+//        baiHocHelper.QueryData("INSERT INTO NoiDungTable VALUES (null, 'Máy tính 1')");
+//        baiHocHelper.QueryData("INSERT INTO NoiDungTable VALUES (null, 'Máy tính 4')");
+//        baiHocHelper.QueryData("INSERT INTO NoiDungTable VALUES (null, 'Máy tính 2')");
 
         //Hien thi
         action();
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor dataBaiHoc = baiHocHelper.GetData("SELECT * FROM NoiDungTable");
         arrayList.clear();
         while (dataBaiHoc.moveToNext()){
+
             String ten = dataBaiHoc.getString(1);
             //Hien thi thong bao
             //Toast.makeText(this,ten,Toast.LENGTH_SHORT).show();
